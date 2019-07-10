@@ -37,7 +37,7 @@ namespace MishMashOfAllProject
 
     }
 
-    public class Stuff : IMyInterfaceLearning
+    public class Stuffs : IMyInterfaceLearning
     {
         public void TextWriter(string s)
         {
@@ -48,6 +48,7 @@ namespace MishMashOfAllProject
             string m = Console.ReadLine();
             return m;
         }
+        public void Stuff() { return; }
     }
 }
 

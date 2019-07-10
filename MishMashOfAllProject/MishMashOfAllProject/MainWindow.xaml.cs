@@ -57,5 +57,7 @@ namespace MishMashOfAllProject
         {
             return "string";
         }
+
+        public void Stuff() { }
     }
 }

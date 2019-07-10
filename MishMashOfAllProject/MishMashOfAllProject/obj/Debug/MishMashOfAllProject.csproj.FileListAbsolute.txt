@@ -18,3 +18,22 @@ C:\Users\mjsh6\source\repos\MishMashOfAllProject\MishMashOfAllProject\obj\Debug\
 C:\Users\mjsh6\source\repos\MishMashOfAllProject\MishMashOfAllProject\obj\Debug\LearningCSharpPage.g.cs
 C:\Users\mjsh6\source\repos\MishMashOfAllProject\MishMashOfAllProject\obj\Debug\LearningCSharpPage.baml
 C:\Users\mjsh6\source\repos\MishMashOfAllProject\MishMashOfAllProject\obj\Debug\MishMashOfAllProject.csprojAssemblyReference.cache
+Z:\Git Repos\MishMashOfAllProject\MishMashOfAllProject\obj\Debug\MishMashOfAllProject.csproj.ResolveComReference.cache
+Z:\Git Repos\MishMashOfAllProject\MishMashOfAllProject\obj\Debug\dlgFirstProjectPage.g.cs
+Z:\Git Repos\MishMashOfAllProject\MishMashOfAllProject\obj\Debug\LearningCSharpPage.g.cs
+Z:\Git Repos\MishMashOfAllProject\MishMashOfAllProject\obj\Debug\MainWindow.g.cs
+Z:\Git Repos\MishMashOfAllProject\MishMashOfAllProject\obj\Debug\App.g.cs
+Z:\Git Repos\MishMashOfAllProject\MishMashOfAllProject\obj\Debug\MishMashOfAllProject_MarkupCompile.cache
+Z:\Git Repos\MishMashOfAllProject\MishMashOfAllProject\obj\Debug\MishMashOfAllProject_MarkupCompile.lref
+Z:\Git Repos\MishMashOfAllProject\MishMashOfAllProject\obj\Debug\MishMashOfAllProject.exe
+Z:\Git Repos\MishMashOfAllProject\MishMashOfAllProject\obj\Debug\MishMashOfAllProject.pdb
+Z:\Git Repos\MishMashOfAllProject\MishMashOfAllProject\bin\Debug\MishMashOfAllProject.exe.config
+Z:\Git Repos\MishMashOfAllProject\MishMashOfAllProject\bin\Debug\MishMashOfAllProject.exe
+Z:\Git Repos\MishMashOfAllProject\MishMashOfAllProject\bin\Debug\MishMashOfAllProject.pdb
+Z:\Git Repos\MishMashOfAllProject\MishMashOfAllProject\obj\Debug\dlgFirstProjectPage.baml
+Z:\Git Repos\MishMashOfAllProject\MishMashOfAllProject\obj\Debug\LearningCSharpPage.baml
+Z:\Git Repos\MishMashOfAllProject\MishMashOfAllProject\obj\Debug\MainWindow.baml
+Z:\Git Repos\MishMashOfAllProject\MishMashOfAllProject\obj\Debug\MishMashOfAllProject.g.resources
+Z:\Git Repos\MishMashOfAllProject\MishMashOfAllProject\obj\Debug\MishMashOfAllProject.Properties.Resources.resources
+Z:\Git Repos\MishMashOfAllProject\MishMashOfAllProject\obj\Debug\MishMashOfAllProject.csproj.GenerateResource.cache
+Z:\Git Repos\MishMashOfAllProject\MishMashOfAllProject\obj\Debug\MishMashOfAllProject.csproj.CoreCompileInputs.cache

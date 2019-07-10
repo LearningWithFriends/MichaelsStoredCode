@@ -10,5 +10,7 @@ namespace MishMashOfAllProject
     {
         void TextWriter(string s);
         string TextReader(string s);
+
+        void Stuff();
     }
 }
