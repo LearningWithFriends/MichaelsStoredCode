@@ -13,4 +13,8 @@ namespace MishMashOfAllProject
 
         void Stuff();
     }
+    interface IWriter
+    {
+        void CWWriter(string s);
+    }
 }
