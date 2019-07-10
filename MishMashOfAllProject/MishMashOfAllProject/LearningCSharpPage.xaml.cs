@@ -29,19 +29,27 @@ namespace MishMashOfAllProject
             this.WindowState = WindowState.Minimized;
             #endregion
             // Add logic here to use 
+            var b = new books();
+            b.author = "harry dickens";
 
-            var m = new moreStuff();
-            m.TextWriter("this is a sentence");
-            
+
+
+        }
+        public struct books
+        {
+            public int edition;
+            public string name;
+            public string author;
+
         }
 
     }
 
-    public class Stuffs : IMyInterfaceLearning,IWriter
+    public class Stuffs : IMyInterfaceLearning, IWriter
     {
         public void TextWriter(string s)
         {
-            Console.WriteLine(s); 
+            Console.WriteLine(s);
         }
         public string TextReader(string s)
         {
@@ -53,6 +61,8 @@ namespace MishMashOfAllProject
         {
             Console.WriteLine(s);
         }
+
+
     }
 }
 
