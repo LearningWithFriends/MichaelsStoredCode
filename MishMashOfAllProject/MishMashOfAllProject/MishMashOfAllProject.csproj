@@ -65,14 +65,19 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="DataReadWrite.cs" />
-    <Compile Include="MyInterfaceLearning.cs" />
+    <Compile Include="OLD.CS\DataReadWrite.cs" />
+    <Compile Include="OLD.CS\Devices.cs" />
+    <Compile Include="OLD.CS\Interfaces.cs" />
+    <Compile Include="OLD.CS\MyInterfaceLearning.cs" />
+    <Compile Include="OLD.CS\MyTimer.cs" />
     <Compile Include="OLD.CS\myHashTable.cs" />
     <Compile Include="OLD.CS\Dictionary.cs" />
     <Compile Include="LearningCSharpPage.xaml.cs">
       <DependentUpon>LearningCSharpPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="OLD.CS\ReadingFilesExcercise.cs" />
+    <Compile Include="OLD.CS\Stuffs.cs" />
+    <Compile Include="OLD.CS\TuplesShit.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="OLD.CS\ExcelRWTesting.cs" />
