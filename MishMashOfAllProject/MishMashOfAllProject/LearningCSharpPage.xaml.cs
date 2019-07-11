@@ -31,59 +31,90 @@ namespace MishMashOfAllProject
             this.WindowState = WindowState.Minimized;
             #endregion
             // Add logic here to use 
-            var ms = new moreStuff();
-            ms.TextWriter("stuff");
+            MyTimer t = new MyTimer();
+            t.ATimer(new CoffeMaker());
+            t.ATimer(new Toaster());
         }
-        
-     }
+
+    }
     public class MyTimer
     {
-        public void Timer (int length)
+
+        public void ATimer(IPluggable pluggable)
         {
-            Thread.Sleep(1000 * length);
+            Console.WriteLine(pluggable.Grounded);
+            Console.WriteLine(pluggable.Voltage);
             return;
         }
-        
+
     }
-        
-    }
-    public class TuplesShit
+
+}
+public class TuplesShit
+{
+    private string _value;
+    public string name
     {
-        private string _value;
-        public string name
-        {
-            get { return _value; }
-            set { _value = value; }
-        }
-
-        char offsite = 'X';
-        int jobnum = 17116;
-        int hours = 8;
-
-        //var previous = new Tuple<char, int, int>(offsite, jobnum, hours);
-        //Console.WriteLine(previous.Item1);
-        //    Console.WriteLine(previous.Item2);
-        //    Console.WriteLine(previous.Item3);
+        get { return _value; }
+        set { _value = value; }
     }
 
-    public class Stuffs : IWriter,IMyInterfaceLearning  
+    char offsite = 'X';
+    int jobnum = 17116;
+    int hours = 8;
+
+    //var previous = new Tuple<char, int, int>(offsite, jobnum, hours);
+    //Console.WriteLine(previous.Item1);
+    //    Console.WriteLine(previous.Item2);
+    //    Console.WriteLine(previous.Item3);
+}
+
+public class Stuffs : IWriter, IMyInterfaceLearning
+{
+    public void TextWriter(string s)
     {
-        public void TextWriter(string s)
-        {
-            Console.WriteLine(s);
-        }
-        public string TextReader(string s)
-        {
-            string m = Console.ReadLine();
-            return m;
-        }
-        public void Stuff() { return; }
-        public void CWWriter(string s)
-        {
-            Console.WriteLine(s);
-        }
-
-
+        Console.WriteLine(s);
     }
+    public string TextReader(string s)
+    {
+        string m = Console.ReadLine();
+        return m;
+    }
+    public void Stuff() { return; }
+    public void CWWriter(string s)
+    {
+        Console.WriteLine(s);
+    }
+
+
+
+}
+public interface IPluggable
+
+{
+    int Voltage { get; }
+    string PlugType { get; }
+    bool Grounded { get; }
+
+}
+public class CoffeMaker : IPluggable
+{
+    private int _Voltage = 120;
+    private string _PlugType = "NEMA20";
+    private bool _Grounded = true;
+    public int Voltage { get { return this._Voltage; } }
+    public string PlugType { get { return this._PlugType; } }
+    public bool Grounded { get { return this._Grounded; } }
+}
+public class Toaster : IPluggable
+{
+    private int _Voltage = 15;
+    private string _PlugType = "ungrounded Nema";
+    private bool _Grounded = false;
+    public int Voltage { get { return this._Voltage; } }
+    public string PlugType { get { return this._PlugType; } }
+    public bool Grounded { get { return this._Grounded; } }
+}
+
 
 

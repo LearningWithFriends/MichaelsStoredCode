@@ -9,7 +9,7 @@ namespace MishMashOfAllProject
 
     interface IMyInterfaceLearning
     {
-        void TextWriter(string s,);
+        void TextWriter(string s);
         string TextReader(string s);
 
         void Stuff();
