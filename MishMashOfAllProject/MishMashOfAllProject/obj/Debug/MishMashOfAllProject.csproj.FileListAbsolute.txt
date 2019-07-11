@@ -37,3 +37,4 @@ Z:\Git Repos\MishMashOfAllProject\MishMashOfAllProject\obj\Debug\MishMashOfAllPr
 Z:\Git Repos\MishMashOfAllProject\MishMashOfAllProject\obj\Debug\MishMashOfAllProject.Properties.Resources.resources
 Z:\Git Repos\MishMashOfAllProject\MishMashOfAllProject\obj\Debug\MishMashOfAllProject.csproj.GenerateResource.cache
 Z:\Git Repos\MishMashOfAllProject\MishMashOfAllProject\obj\Debug\MishMashOfAllProject.csproj.CoreCompileInputs.cache
+Z:\Git Repos\MishMashOfAllProject\MishMashOfAllProject\obj\Debug\MishMashOfAllProject.csprojAssemblyReference.cache

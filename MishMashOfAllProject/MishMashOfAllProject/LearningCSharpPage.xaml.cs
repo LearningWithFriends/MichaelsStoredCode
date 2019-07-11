@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Xml;
+using System.Threading;
+using MishMashOfAllProject;
 
 
 namespace MishMashOfAllProject
@@ -29,23 +31,42 @@ namespace MishMashOfAllProject
             this.WindowState = WindowState.Minimized;
             #endregion
             // Add logic here to use 
-            var b = new books();
-            b.author = "harry dickens";
-
-
-
+            var ms = new moreStuff();
+            ms.TextWriter("stuff");
         }
-        public struct books
+        
+     }
+    public class MyTimer
+    {
+        public void Timer (int length)
         {
-            public int edition;
-            public string name;
-            public string author;
-
+            Thread.Sleep(1000 * length);
+            return;
+        }
+        
+    }
+        
+    }
+    public class TuplesShit
+    {
+        private string _value;
+        public string name
+        {
+            get { return _value; }
+            set { _value = value; }
         }
 
+        char offsite = 'X';
+        int jobnum = 17116;
+        int hours = 8;
+
+        //var previous = new Tuple<char, int, int>(offsite, jobnum, hours);
+        //Console.WriteLine(previous.Item1);
+        //    Console.WriteLine(previous.Item2);
+        //    Console.WriteLine(previous.Item3);
     }
 
-    public class Stuffs : IMyInterfaceLearning, IWriter
+    public class Stuffs : IWriter,IMyInterfaceLearning  
     {
         public void TextWriter(string s)
         {
@@ -64,5 +85,5 @@ namespace MishMashOfAllProject
 
 
     }
-}
+
 
