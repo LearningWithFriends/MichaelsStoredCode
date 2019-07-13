@@ -41,23 +41,4 @@ namespace MishMashOfAllProject
         }
     }
     #endregion
-
-    class moreStuff : IMyInterfaceLearning
-    {
-        public void TextWriter(string s)
-        {
-            var c = s.ToCharArray();
-            foreach (var ch in c)
-            {
-                Console.WriteLine(ch);
-            }
-        }
-
-        public string TextReader(string s)
-        {
-            return "string";
-        }
-
-        public void Stuff() { }
-    }
 }

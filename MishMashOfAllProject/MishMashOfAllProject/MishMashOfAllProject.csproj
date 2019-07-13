@@ -65,6 +65,9 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="OLD.CS\Friends.cs" />
+    <Compile Include="OLD.CS\ITelevisionShow.cs" />
+    <Compile Include="OLD.CS\Office.cs" />
     <Compile Include="OLD.CS\DataReadWrite.cs" />
     <Compile Include="OLD.CS\Devices.cs" />
     <Compile Include="OLD.CS\Interfaces.cs" />
@@ -78,6 +81,7 @@
     <Compile Include="OLD.CS\ReadingFilesExcercise.cs" />
     <Compile Include="OLD.CS\Stuffs.cs" />
     <Compile Include="OLD.CS\TuplesShit.cs" />
+    <Compile Include="OLD.CS\TVShowWatcher.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="OLD.CS\ExcelRWTesting.cs" />

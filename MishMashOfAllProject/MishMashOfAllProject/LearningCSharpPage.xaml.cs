@@ -31,6 +31,9 @@ namespace MishMashOfAllProject
             this.WindowState = WindowState.Minimized;
             #endregion
             // Add logic here to use 
+            
+           
+           
            
         }
 
