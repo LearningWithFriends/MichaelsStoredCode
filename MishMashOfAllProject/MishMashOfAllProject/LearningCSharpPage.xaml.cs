@@ -23,6 +23,7 @@ namespace MishMashOfAllProject
     /// </summary>
     public partial class LearningCSharpPage : Window
     {
+
         public LearningCSharpPage()
         {
             #region Don't Change This
@@ -31,16 +32,14 @@ namespace MishMashOfAllProject
             this.WindowState = WindowState.Minimized;
             #endregion
             // Add logic here to use 
-            
-           
-           
+
+
            
         }
 
     }
-    
-
 }
+
 
 
 
