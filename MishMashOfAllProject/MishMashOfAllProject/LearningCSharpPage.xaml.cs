@@ -32,9 +32,19 @@ namespace MishMashOfAllProject
             this.WindowState = WindowState.Minimized;
             #endregion
             // Add logic here to use 
+            //Async and AWAIT
+            //LINQ and Lambda and XML
+            // Delegates and Events
+            //Exceptions (Try/Catch/Finally/Throw)
+            //Generics
 
 
-           
+            
+       
+
+
+
+
         }
 
     }
