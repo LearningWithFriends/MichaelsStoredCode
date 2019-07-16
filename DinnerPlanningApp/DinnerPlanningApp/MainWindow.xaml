@@ -5,8 +5,33 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DinnerPlanningApp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+        Title="MainWindow" Height="766.5" Width="1327.25" ResizeMode="CanMinimize">
+    <Grid Background="#FF5B3A3A">
+        <TabControl HorizontalAlignment="Left" Height="738" VerticalAlignment="Top" Width="1321">
+            <TabItem Header="Planner" Margin="-2,-2,-116,-24">
+                <Grid Background="#FFE5E5E5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="7*"/>
+                        <ColumnDefinition Width="72*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button Content="Add new Meal" Grid.Column="1" HorizontalAlignment="Left" Margin="567,55,0,0" VerticalAlignment="Top" Width="103" Height="33"/>
+                    <TextBox Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="308,60,0,0" TextWrapping="Wrap" Text="Enter New Meal Title..." VerticalAlignment="Top" Width="238"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Shopping List" Margin="116,0,-243,-23">
+                <Grid Background="#FFE5E5E5" Margin="0,20,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="19*"/>
+                        <ColumnDefinition Width="770*"/>
+                    </Grid.ColumnDefinitions>
+                    <ListBox HorizontalAlignment="Left" Height="612" Margin="18,62,0,0" VerticalAlignment="Top" Width="325" Grid.ColumnSpan="2"/>
+                    <ListBox HorizontalAlignment="Left" Height="612" Margin="460.5,62,0,0" VerticalAlignment="Top" Width="325" Grid.Column="1"/>
+                    <ListBox HorizontalAlignment="Left" Height="612" Margin="919.5,62,0,0" VerticalAlignment="Top" Width="325" Grid.Column="1"/>
+                    <Label Content="Grocery" HorizontalAlignment="Left" Margin="117.5,31,0,0" VerticalAlignment="Top" Width="95" Grid.Column="1" FontSize="20"/>
+                    <Label Content="Produce / Bakery" HorizontalAlignment="Left" Margin="536.5,31,0,0" VerticalAlignment="Top" Width="192" Grid.Column="1" FontSize="20"/>
+                    <Label Content="Meat" HorizontalAlignment="Left" Margin="1056.5,31,0,0" VerticalAlignment="Top" Width="95" Grid.Column="1" FontSize="20"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
     </Grid>
 </Window>
