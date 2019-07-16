@@ -14,11 +14,9 @@
                         <ColumnDefinition Width="7*"/>
                         <ColumnDefinition Width="72*"/>
                     </Grid.ColumnDefinitions>
-                    <Button Content="Add new Meal" Grid.Column="1" HorizontalAlignment="Left" Margin="567,55,0,0" VerticalAlignment="Top" Width="103" Height="33"/>
-                    <TextBox Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="308,60,0,0" TextWrapping="Wrap" Text="Enter New Meal Title..." VerticalAlignment="Top" Width="238"/>
                 </Grid>
             </TabItem>
-            <TabItem Header="Shopping List" Margin="116,0,-243,-23">
+            <TabItem Header="Shopping List" Margin="122,0,-249,-23">
                 <Grid Background="#FFE5E5E5" Margin="0,20,0,0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="19*"/>
@@ -32,6 +30,17 @@
                     <Label Content="Meat" HorizontalAlignment="Left" Margin="1056.5,31,0,0" VerticalAlignment="Top" Width="95" Grid.Column="1" FontSize="20"/>
                 </Grid>
             </TabItem>
+            <TabItem Margin="255,0,-255,-26" Header="Add New Items" Width="243">
+                <Grid Margin="425,55,528,616">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="97*"/>
+                        <ColumnDefinition Width="24*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button Content="Add new Meal" HorizontalAlignment="Left" Margin="387.5,159,-418,-159" VerticalAlignment="Top" Width="102" Height="33" Grid.Column="1"/>
+                    <TextBox HorizontalAlignment="Left" Height="22" Margin="112,40,-278,-29" TextWrapping="Wrap" Text="Enter New Meal Title..." VerticalAlignment="Top" Width="238" Grid.Column="1"/>
+                </Grid>
+            </TabItem>
+
         </TabControl>
     </Grid>
 </Window>
