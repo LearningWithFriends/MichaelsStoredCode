@@ -14,6 +14,8 @@ using System.Windows.Shapes;
 using System.Xml;
 using System.Threading;
 using MishMashOfAllProject;
+using System.Configuration;
+using System.IO;
 
 
 namespace MishMashOfAllProject
@@ -31,20 +33,18 @@ namespace MishMashOfAllProject
             InitializeComponent();
             this.WindowState = WindowState.Minimized;
             #endregion
+            /*navigate to a location, create a file
+             * 
+             */
             // Add logic here to use 
             //Async and AWAIT
             //LINQ and Lambda and XML
             // Delegates and Events
             //Exceptions (Try/Catch/Finally/Throw)
             //Generics
+            // how to add new settings values during runtime 
 
-
-            
-       
-
-
-
-
+            PlayingWithFiles.FileCreation();
         }
 
     }

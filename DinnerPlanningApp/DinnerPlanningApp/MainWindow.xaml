@@ -34,9 +34,9 @@
 
 
                 <Grid>
-                    <Button Content="Add new Meal" HorizontalAlignment="Left" Margin="382,261,0,0" VerticalAlignment="Top" Width="102" Height="33"/>
-                    <TextBox Name="MealName" HorizontalAlignment="Left" Height="25" TextWrapping="Wrap" Text="Enter New Meal Title...&#xD;&#xA;" VerticalAlignment="Top" Width="367" Margin="10,30,0,0"/>
-                    <TextBox Name="IngrediantTBox" HorizontalAlignment="Right" Height="234" Margin="0,60,938,0" TextWrapping="Wrap" Text="Enter Ingrediants then '/' then Department ex. (Flour/Grocery), Separate them with a comma ex.(Flour/Grocery, Bread/Bakery)" VerticalAlignment="Top" Width="367"/>
+                    <Button Content="Add new Meal" HorizontalAlignment="Left" Margin="382,261,0,0" VerticalAlignment="Top" Width="102" Height="33" Click="Button_Click"/>
+                    <TextBox Name="MealName" HorizontalAlignment="Left" Height="25" TextWrapping="Wrap" Text="Enter New Meal Title..." VerticalAlignment="Top" Width="367" Margin="10,30,0,0" TextChanged="MealName_TextChanged" PreviewMouseDown="MealName_PreviewMouseDown"/>
+                    <TextBox Name="IngrediantTBox" HorizontalAlignment="Right" Height="234" Margin="0,60,938,0" TextWrapping="Wrap" Text="Enter Ingrediants then '/' then Department ex. (Flour/Grocery), Separate them with a comma ex.(Flour/Grocery, Bread/Bakery)" VerticalAlignment="Top" Width="367" TextChanged="IngrediantTBox_TextChanged" PreviewMouseDown="IngrediantTBox_PreviewMouseDown"/>
                 </Grid>
 
 
