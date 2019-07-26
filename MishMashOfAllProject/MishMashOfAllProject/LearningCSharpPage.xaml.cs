@@ -44,7 +44,9 @@ namespace MishMashOfAllProject
             //Generics
             // how to add new settings values during runtime 
 
+           //adding new code to fix bug issues
             //frank adds code here to the main program,
+
         }
 
     }
