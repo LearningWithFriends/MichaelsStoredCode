@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Meals>
+  <Hamburgers>
+    <Grocery>Ketchup,Cheese,Mustard</Grocery>
+    <Produce>Lettuce,Tomatio,Onion</Produce>
+    <Meat>GroundBeef,Bacon</Meat>
+    <notThis>PrintThis</notThis>
+  </Hamburgers>
+
+  <Pizza>
+    <Grocery>Dough, Cheese</Grocery>
+    <Produce>Mushrooms, GreenPeppers</Produce>
+    <Meat>Pepperoni,tasss</Meat>
+  </Pizza>
+  
+  <ShrimpPasta>
+    <Grocery>Sauce, Pasta</Grocery>
+    <Produce></Produce>
+    <Meat>Shrimp</Meat>
+  </ShrimpPasta>
+</Meals>
