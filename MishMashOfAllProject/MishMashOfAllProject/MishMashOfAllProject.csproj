@@ -66,6 +66,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="LearningSomeNewShitClass.cs" />
     <Compile Include="OLD.CS\Friends.cs" />
     <Compile Include="OLD.CS\ITelevisionShow.cs" />
     <Compile Include="OLD.CS\Office.cs" />
