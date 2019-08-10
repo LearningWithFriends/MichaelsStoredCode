@@ -16,10 +16,10 @@ namespace TimesheetWriter
     class Program
     {
         [STAThread]
-        static void Main(string[] args)
+        static void Main()
         {
-            var us = new TImesheetWriter.Properties.UserSettings();
-
+            var us = new TImesheetWriter.Properties.Settings1();
+            us.Reload();
             string path = us.FileLocation; // done
             string dateChoice;  //done
             string favChoice;   //done
@@ -38,8 +38,10 @@ namespace TimesheetWriter
             Console.WriteLine("");
             Console.WriteLine("**********************************************************************");
             Thread.Sleep(3000);
+
             if (us.FirstTimeSetupRequired)
             {
+                bool _setter = false;
                 Console.WriteLine("Lets go through the first time setup, please enter your Name: ");
                 firstTimeSetupName = Console.ReadLine();
                 Console.WriteLine("Please Select a File Location");
@@ -47,7 +49,7 @@ namespace TimesheetWriter
                 var FBD = new System.Windows.Forms.FolderBrowserDialog();
                 FBD.ShowDialog();
                 us.FileLocation = FBD.SelectedPath;
-                us.FirstTimeSetupRequired = false;
+                us.FirstTimeSetupRequired = _setter;
                 us.Save();
             }
 
