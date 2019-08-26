@@ -70,5 +70,17 @@ namespace TImesheetWriter.Properties {
                 this["Name"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool Offsite {
+            get {
+                return ((bool)(this["Offsite"]));
+            }
+            set {
+                this["Offsite"] = value;
+            }
+        }
     }
 }

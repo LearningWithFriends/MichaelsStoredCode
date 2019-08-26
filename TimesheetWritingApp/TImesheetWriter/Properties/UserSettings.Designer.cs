@@ -23,15 +23,12 @@ namespace TImesheetWriter.Properties {
             }
         }
         
-        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("True")]
         public bool FirstTimeSetupRequired {
             get {
                 return ((bool)(this["FirstTimeSetupRequired"]));
-            }
-            set {
-                this["FirstTimeSetupRequired"] = value;
             }
         }
         

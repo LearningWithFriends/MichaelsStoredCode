@@ -8,28 +8,36 @@ using CustomExcelControl;
 using TImesheetWriter;
 using System.IO;
 using System.Threading;
+//IT WORKS !!!!!!!!!!!!!!!
 
 namespace TimesheetWriter
-{ //Looking to add templates so it remembers, being able to save and add favourites.
-    // have a setup function that lets you set your directory choice or checks if you have a directory,if not it creates one
-    // option to select a different date or today
+{ 
+    // option for multiple jobs, store these in favourites 
+    // add some logic that stores the empty timesheet in the folder selected and then uses it for the future. after which it removes the option to run the init start up unless a key sequence is used to restart it
+    //add option for "other" when selecting the date
+    //need a 'n' option for working offsite
+    //the output for the job number should be .ToUpper();
+
     class Program
     {
         [STAThread]
         static void Main()
         {
+            Excel excel = new Excel();
+
             var us = new TImesheetWriter.Properties.Settings1();
-            us.Reload();
             string path = us.FileLocation; // done
             string dateChoice;  //done
             string favChoice;   //done
             string jobNumber;   //done either us.previous job, or new job
             string firstTimeSetupName = us.Name; //done
-            string name; //done
-            string userIntials = ""; //done
+            string name;
+            string userInitials = ""; //done
             double hours; //done
-
-
+            string day;
+            string month = Convert.ToString(DateTime.Today.Month);
+            string year = Convert.ToString(DateTime.Today.Year);
+            bool offsite = us.Offsite;
             #region InitialGreeting
             Console.WriteLine("**********************************************************************");
             Console.WriteLine("");
@@ -37,18 +45,27 @@ namespace TimesheetWriter
             Console.WriteLine("                     Created by Michael Spence-High   ");
             Console.WriteLine("");
             Console.WriteLine("**********************************************************************");
-            Thread.Sleep(3000);
+            Thread.Sleep(1000);
 
-            if (us.FirstTimeSetupRequired)
+            Console.WriteLine("\n would you like to run the First time start again? Y/N ");
+            string settup = Console.ReadLine().ToUpper();
+            if (settup == "Y")
+            {
+                us.FirstTimeSetupRequired = true;
+                us.Save();
+            }
+
+            if (us.FirstTimeSetupRequired == true)
             {
                 bool _setter = false;
                 Console.WriteLine("Lets go through the first time setup, please enter your Name: ");
-                firstTimeSetupName = Console.ReadLine();
+                us.Name = Console.ReadLine();
                 Console.WriteLine("Please Select a File Location");
                 Thread.Sleep(1000);
                 var FBD = new System.Windows.Forms.FolderBrowserDialog();
                 FBD.ShowDialog();
                 us.FileLocation = FBD.SelectedPath;
+                path = us.FileLocation;
                 us.FirstTimeSetupRequired = _setter;
                 us.Save();
             }
@@ -98,8 +115,8 @@ namespace TimesheetWriter
             {
 
                 Console.WriteLine("\n\n");
-                Console.WriteLine("is this timesheet the same as last time?: " + us.PreviousJobNumber);
-                Console.WriteLine("Press Y for yes, N for no");
+                Console.WriteLine("is this timesheet the same as last time?: " + us.PreviousJobNumber + "\noffsite?: " + us.Offsite);
+                Console.WriteLine("\nPress Y for yes, N for no");
                 string _favResponse = Console.ReadLine().ToLower();
                 if (_favResponse != "")
                 {
@@ -157,10 +174,47 @@ namespace TimesheetWriter
                     }
                 }
             }
-            //Name and initials loop
+            while (true)
+            {
+                if (favChoice == "y")
+                {
+                    us.Offsite = true;
+                    offsite = us.Offsite;
+                    break;
+                }
+                else
+                {
 
-            name = firstTimeSetupName;
-            userIntials = "MSH";
+                    Console.WriteLine("\n\n");
+                    Console.WriteLine("Were you offsite? Y/N : ");
+
+                    string _offsResp = Console.ReadLine().ToLower();
+                    if (_offsResp == "y")
+                    {
+                        us.Offsite = true;
+                        us.Save();
+                        break;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Cannot be empty.");
+                        Thread.Sleep(2000);
+                    }
+                }
+            }
+            //Name and initials loop
+            #region Initial Generation
+
+            name = us.Name;
+            string[] nameSplit = name.Split(new char[] { ' ', '-' });
+
+            foreach (var n in nameSplit)
+            {
+                userInitials += n[0];
+            }
+            userInitials.ToUpper();
+
+            #endregion
             //string[] initArray = name.Split();
             //foreach (string item in initArray)
             //{
@@ -192,68 +246,32 @@ namespace TimesheetWriter
             Console.Clear();
             Thread.Sleep(1000);
             #endregion
-            //this will have everthing needed to write the timesheets.
 
-            Console.WriteLine(dateChoice);
-            Console.WriteLine(jobNumber);
-            Console.WriteLine(name);
-            Console.WriteLine(userIntials);
-            Console.WriteLine(hours);
-            Console.WriteLine(path);
+
+            if (dateChoice == "y")
+            {
+                day = Convert.ToString(DateTime.Today.AddDays(-1).Day);
+            }
+            else
+            {
+                day = Convert.ToString(DateTime.Today.Day);
+            }
+            excel.OpenExcel(@"Z:\Git Repos\TimesheetWritingApp\TImesheetWriter\bin\Debug\EmptyTimesheet", 1);
+            excel.WriteExcel(2, 2, name);
+            excel.WriteExcel(16, 2, userInitials);
+            excel.WriteExcel(2, 11, year + "-" + month + "-" + day);
+            //eventually a for loop here for multiple jobs
+            if (offsite)
+            {
+                excel.WriteExcel((5),0, "X");
+            }
+            excel.WriteExcel((5), 1, jobNumber);
+            excel.WriteExcel((5), 5, Convert.ToString(hours));
+            excel.SaveAs(path  + "\\" + userInitials + "TimeSheet" + year + month + day);
+            excel.Close();
+            Console.WriteLine("END");
             Console.ReadLine();
 
-
-
-
-
-            // Console.WriteLine(Directory.GetCurrentDirectory());
-            //var dw = new DirectoryWriter();
-            // dw.CheckDirCreateDir();
-            // dw.MoveEmptyPREQ();
-            // Console.ReadLine();
-            //Excel excel = new Excel();
-            //excel.OpenExcel(@"C:\Users\mjsh6\source\repos\MishMashOfAllProject\MishMashOfAllProject\TestingExcel\EmptyTimesheet", 1);
-            //Console.WriteLine("Name?: ");
-            //var name = Console.ReadLine();
-            //Console.WriteLine("Initials?: ");
-            //var inits = Console.ReadLine();
-            //var todayDay = Convert.ToString(DateTime.Today.Day);
-            //var todayMonth = Convert.ToString(DateTime.Today.Month);
-            //var todayYear = Convert.ToString(DateTime.Today.Year);
-            //excel.WriteExcel(2, 2, name);
-            //excel.WriteExcel(16, 2, inits);
-            //excel.WriteExcel(2, 11, todayYear + "-" + todayMonth + "-" + todayDay);
-
-            //Console.WriteLine("How many Job numbers? ");
-            //int jobNum = Convert.ToInt16(Console.ReadLine());
-            //bool offsite = false;
-            //for (int i = 0; i < jobNum; i++)
-            //{
-            //    string response = "";
-            //    Console.WriteLine("Job number for job " + (i + 1) + "?");
-            //    string job = Console.ReadLine();
-            //    Console.WriteLine("Hours for this job?");
-            //    string hours = Console.ReadLine();
-            //    Console.WriteLine("Where you offsite for this job?");
-            //    response = Console.ReadLine();
-            //    response.ToUpper();
-            //    if ((response.Contains("Y")))
-            //    {
-            //        offsite = true;
-            //    }
-            //    else
-            //    {
-            //        offsite = false;
-            //    }
-            //    excel.WriteExcel((5 + i), 1, job);
-            //    excel.WriteExcel((5 + i), 5, hours);
-            //    if (offsite)
-            //    {
-            //        excel.WriteExcel((5 + i), 0, "X");
-            //    }
-            //}
-            //excel.SaveAs(@"C:\Users\mjsh6\source\repos\MishMashOfAllProject\MishMashOfAllProject\TestingExcel\" + "TimeSheet" + todayYear + todayMonth + todayDay);
-            //excel.Close();
         }
     }
 }
