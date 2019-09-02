@@ -17,6 +17,7 @@ namespace TimesheetWriter
     /// option for multiple jobs, store these in favourites 
     ///add some logic that stores the empty timesheet in the folder selected and then uses it for the future. after which it removes the option to run the init start up unless a key sequence is used to restart it have it instead just look at current directory for the code
     /// for the multiple job number, add them to the string with a separator, split them before writing
+    
     /// </TODO>
 
 
@@ -47,20 +48,25 @@ namespace TimesheetWriter
             Console.WriteLine("                     Created by Michael Spence-High   ");
             Console.WriteLine("                        Press Y to run start up                       ");
             Console.WriteLine("**********************************************************************");
-            Thread.Sleep(1000);
+            Thread.Sleep(2000);
+            Console.WriteLine("\n                     Press Enter to Continue....");
 
-            Console.WriteLine("\n would you like to run the First time start again? Y/N ");
-            string settup = Console.ReadLine().ToUpper();
-            if (settup == "Y")
+
+            if ('y' == Console.ReadKey().KeyChar)
             {
                 us.FirstTimeSetupRequired = true;
                 us.Save();
+            }
+            else
+            {
+                us.FirstTimeSetupRequired = false;
             }
 
             if (us.FirstTimeSetupRequired == true)
             {
                 bool _setter = false;
                 Console.WriteLine("Lets go through the first time setup, please enter your Name: ");
+                Thread.Sleep(1000);
                 us.Name = Console.ReadLine();
                 Console.WriteLine("Please Select a File Location");
                 Thread.Sleep(1000);
@@ -72,8 +78,7 @@ namespace TimesheetWriter
                 us.Save();
             }
 
-            Console.WriteLine("\n                     Press Enter to Continue....");
-            Console.ReadLine();
+           
             Console.Clear();
             Thread.Sleep(1000);
             #endregion
