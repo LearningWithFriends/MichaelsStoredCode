@@ -11,12 +11,14 @@ using System.Threading;
 //IT WORKS !!!!!!!!!!!!!!!
 
 namespace TimesheetWriter
-{ 
-    // option for multiple jobs, store these in favourites 
-    // add some logic that stores the empty timesheet in the folder selected and then uses it for the future. after which it removes the option to run the init start up unless a key sequence is used to restart it
-    //add option for "other" when selecting the date
-    //need a 'n' option for working offsite
-    //the output for the job number should be .ToUpper();
+{
+    
+    /// <TODO>
+    /// option for multiple jobs, store these in favourites 
+    ///add some logic that stores the empty timesheet in the folder selected and then uses it for the future. after which it removes the option to run the init start up unless a key sequence is used to restart it have it instead just look at current directory for the code
+    /// for the multiple job number, add them to the string with a separator, split them before writing
+    /// </TODO>
+
 
     class Program
     {
@@ -43,7 +45,7 @@ namespace TimesheetWriter
             Console.WriteLine("");
             Console.WriteLine("                 Welcome to the Proto Timesheet writer");
             Console.WriteLine("                     Created by Michael Spence-High   ");
-            Console.WriteLine("");
+            Console.WriteLine("                        Press Y to run start up                       ");
             Console.WriteLine("**********************************************************************");
             Thread.Sleep(1000);
 
@@ -82,12 +84,12 @@ namespace TimesheetWriter
             {
 
                 Console.WriteLine("\n\n");
-                Console.WriteLine("Are you looking to create a timesheet for today or yesterday?...");
-                Console.WriteLine("Press Y for yesterday, T for today");
+                Console.WriteLine("Are you looking to create a timesheet for today, yesterday, or other?...");
+                Console.WriteLine("Press Y for yesterday, T for today, O for other");
                 string _todayYesterday = Console.ReadLine().ToLower();
                 if (_todayYesterday != "")
                 {
-                    if (_todayYesterday == "y" || _todayYesterday == "t")
+                    if (_todayYesterday == "y" || _todayYesterday == "t" || _todayYesterday == "o")
                     {
                         dateChoice = _todayYesterday;
                         break;
@@ -104,6 +106,19 @@ namespace TimesheetWriter
                     Thread.Sleep(2000);
                 }
             }
+            if (dateChoice == "y")
+            {
+                day = Convert.ToString(DateTime.Today.AddDays(-1).Day);
+            }
+            else if (dateChoice == "t")
+            {
+                day = Convert.ToString(DateTime.Today.Day);
+            }
+            else
+            {
+                Console.WriteLine("this isnt implemented yet, using today");
+                day = Convert.ToString(DateTime.Today.Day);
+            }
             Console.Clear();
             Thread.Sleep(1000);
 
@@ -115,7 +130,7 @@ namespace TimesheetWriter
             {
 
                 Console.WriteLine("\n\n");
-                Console.WriteLine("is this timesheet the same as last time?: " + us.PreviousJobNumber + "\noffsite?: " + us.Offsite);
+                Console.WriteLine("is this timesheet the same as last time?: " + us.PreviousJobNumbers + "\noffsite?: " + us.Offsite);
                 Console.WriteLine("\nPress Y for yes, N for no");
                 string _favResponse = Console.ReadLine().ToLower();
                 if (_favResponse != "")
@@ -127,13 +142,13 @@ namespace TimesheetWriter
                     }
                     else
                     {
-                        Console.WriteLine("Response was not 'Y' or 'N'." + us.PreviousJobNumber);
+                        Console.WriteLine("Response was not 'Y' or 'N'." + us.PreviousJobNumbers);
                         Thread.Sleep(2000);
                     }
                 }
                 else
                 {
-                    Console.WriteLine("Cannot be empty." + us.PreviousJobNumber);
+                    Console.WriteLine("Cannot be empty." + us.PreviousJobNumbers);
                     Thread.Sleep(2000);
                 }
             }
@@ -149,7 +164,7 @@ namespace TimesheetWriter
             {
                 if (favChoice == "y")
                 {
-                    jobNumber = us.PreviousJobNumber;
+                    jobNumber = us.PreviousJobNumbers;
 
                     break;
                 }
@@ -163,45 +178,43 @@ namespace TimesheetWriter
                     if (_jobNumber != "")
                     {
                         jobNumber = _jobNumber;
-                        us.PreviousJobNumber = jobNumber;
+                        us.PreviousJobNumbers = jobNumber;
                         us.Save();
+                        while (true)
+                        {
+
+                            Console.WriteLine("\n\n");
+                            Console.WriteLine("Were you offsite? Y/N : ");
+
+                            string _offsResp = Console.ReadLine().ToLower();
+                            if (_offsResp == "y")
+                            {
+                                us.Offsite = true;
+                                offsite = us.Offsite;
+                                us.Save();
+                                break;
+                            }
+                            else
+                            {
+                                us.Offsite = false;
+                                offsite = us.Offsite;
+                                us.Save();
+                                break;
+                            }
+                        }
                         break;
+
                     }
                     else
                     {
                         Console.WriteLine("Cannot be empty.");
                         Thread.Sleep(2000);
                     }
+
                 }
             }
-            while (true)
-            {
-                if (favChoice == "y")
-                {
-                    us.Offsite = true;
-                    offsite = us.Offsite;
-                    break;
-                }
-                else
-                {
+            
 
-                    Console.WriteLine("\n\n");
-                    Console.WriteLine("Were you offsite? Y/N : ");
-
-                    string _offsResp = Console.ReadLine().ToLower();
-                    if (_offsResp == "y")
-                    {
-                        us.Offsite = true;
-                        us.Save();
-                        break;
-                    }
-                    else
-                    {
-                        Console.WriteLine("Cannot be empty.");
-                        Thread.Sleep(2000);
-                    }
-                }
-            }
             //Name and initials loop
             #region Initial Generation
 
@@ -248,14 +261,7 @@ namespace TimesheetWriter
             #endregion
 
 
-            if (dateChoice == "y")
-            {
-                day = Convert.ToString(DateTime.Today.AddDays(-1).Day);
-            }
-            else
-            {
-                day = Convert.ToString(DateTime.Today.Day);
-            }
+
             excel.OpenExcel(@"Z:\Git Repos\TimesheetWritingApp\TImesheetWriter\bin\Debug\EmptyTimesheet", 1);
             excel.WriteExcel(2, 2, name);
             excel.WriteExcel(16, 2, userInitials);
@@ -263,11 +269,11 @@ namespace TimesheetWriter
             //eventually a for loop here for multiple jobs
             if (offsite)
             {
-                excel.WriteExcel((5),0, "X");
+                excel.WriteExcel((5), 0, "X");
             }
-            excel.WriteExcel((5), 1, jobNumber);
+            excel.WriteExcel((5), 1, jobNumber.ToUpper());
             excel.WriteExcel((5), 5, Convert.ToString(hours));
-            excel.SaveAs(path  + "\\" + userInitials + "TimeSheet" + year + month + day);
+            excel.SaveAs(path + "\\" + userInitials + "TimeSheet" + year + month + day);
             excel.Close();
             Console.WriteLine("END");
             Console.ReadLine();

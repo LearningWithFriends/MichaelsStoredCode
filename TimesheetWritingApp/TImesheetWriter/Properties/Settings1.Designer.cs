@@ -37,18 +37,6 @@ namespace TImesheetWriter.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("\"\"")]
-        public string PreviousJobNumber {
-            get {
-                return ((string)(this["PreviousJobNumber"]));
-            }
-            set {
-                this["PreviousJobNumber"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string FileLocation {
             get {
@@ -68,6 +56,18 @@ namespace TImesheetWriter.Properties {
             }
             set {
                 this["Name"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("\"\"")]
+        public string PreviousJobNumbers {
+            get {
+                return ((string)(this["PreviousJobNumbers"]));
+            }
+            set {
+                this["PreviousJobNumbers"] = value;
             }
         }
         
